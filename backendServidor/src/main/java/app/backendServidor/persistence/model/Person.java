@@ -35,8 +35,8 @@ public class Person implements Serializable {
 	@Column(name = "C_SUBNAME")
 	private String subname;
 
-	@OneToOne()
-	@JoinColumn(name = "C_IDUSER", referencedColumnName = "C_IDUSER")
-	@JsonBackReference
-	private User user;
+//	@OneToOne()
+//	@JoinColumn(name = "C_IDUSER", referencedColumnName = "C_IDUSER")
+//	@JsonBackReference
+//	private User user;
 }

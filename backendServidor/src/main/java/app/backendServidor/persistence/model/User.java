@@ -2,14 +2,11 @@ package app.backendServidor.persistence.model;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -27,6 +24,9 @@ public class User implements Serializable {
 	@Column(name = "C_IDUSER")
 	private Long idUser;
 
+	@Column(name = "C_NAME")
+	private String name;
+
 	@Column(name = "C_USERNAME")
 	private String username;
 
@@ -36,8 +36,8 @@ public class User implements Serializable {
 	@Column(name = "C_MAIL")
 	private String mail;
 
-	@OneToOne(mappedBy = "user")
-	@JsonManagedReference
-	private Person person;
+//	@OneToOne(mappedBy = "user")
+//	@JsonManagedReference
+//	private Person person;
 
 }
