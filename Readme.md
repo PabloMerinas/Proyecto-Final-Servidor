@@ -38,6 +38,11 @@ Para ejecutar el proyecto, asegúrate de tener instalado Java y Maven. Luego, pu
 
 El servidor estará disponible en `http://localhost:8080`
 
+El usuario por defecto es:
+
+Mail: admin@admin.com
+Password: admin
+
 ## Autores
 
 Este proyecto fue desarrollado por Pablo Merinas Soto.
