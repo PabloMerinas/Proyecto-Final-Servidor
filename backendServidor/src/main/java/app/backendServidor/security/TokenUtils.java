@@ -14,6 +14,10 @@ import io.jsonwebtoken.security.Keys;
 
 public class TokenUtils {
 
+	private TokenUtils() {
+
+	}
+
 	private static final String ACCESS_TOKEN_SECRET = "4qhq8LrEBfycaRhxhdb9zURb2rf8e7Ud";
 	private static final Long ACCESS_TOKEN_VALIDITY_SECONDS = 2592000L;
 

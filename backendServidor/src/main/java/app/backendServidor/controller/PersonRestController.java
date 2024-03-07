@@ -1,4 +1,4 @@
-package app.backendServidor.controllers;
+package app.backendServidor.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +20,8 @@ import app.backendServidor.services.interfaces.PersonManagementI;
 @Controller
 @RequestMapping("/v1/person")
 public class PersonRestController {
+
+	private static String PERSONNOTFOUNDMSG = "Persona no encontrada";
 
 	private PersonManagementI personManagementI;
 
@@ -47,7 +49,7 @@ public class PersonRestController {
 			if (person.isPresent()) {
 				return ResponseEntity.ok(person.get());
 			} else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Persona no encontrada");
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(PERSONNOTFOUNDMSG);
 			}
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -77,7 +79,7 @@ public class PersonRestController {
 				Person updatedPerson = personManagementI.savePerson(person);
 				return ResponseEntity.ok(updatedPerson);
 			} else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Persona no encontrada");
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(PERSONNOTFOUNDMSG);
 			}
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -94,7 +96,7 @@ public class PersonRestController {
 				personManagementI.deletePerson(id);
 				return ResponseEntity.ok("Persona eliminada correctamente");
 			} else {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Persona no encontrada");
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(PERSONNOTFOUNDMSG);
 			}
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

@@ -1,4 +1,4 @@
-package app.backendServidor.configurations;
+package app.backendServidor.configuration;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,13 +18,13 @@ public class DataInitializer {
 	@PostConstruct
 	public void initializeData() {
 		String password = new BCryptPasswordEncoder().encode("admin");
-		//System.out.println("Usuario de prueba\nMail: admin@admin.com\nContraseña: admin");
 
 		executeSqlStatement(
-				"INSERT INTO T_USER (C_USERNAME, C_NAME, C_PASSWORD, C_MAIL) VALUES ('user1','Pablo Administrador', '" + password + "', 'admin@admin.com');");
-		executeSqlStatement(
-				"INSERT INTO T_PERSON (C_NAME, C_SUBNAME) VALUES ('Pablo', 'Merinas');");
-	} 
+				"INSERT INTO T_USER (C_USERNAME, C_NAME, C_PASSWORD, C_MAIL) VALUES ('user1','Pablo Administrador', '"
+						+ password + "', 'admin@admin.com');");
+		executeSqlStatement("INSERT INTO T_PERSON (C_NAME, C_SUBNAME) VALUES ('Pablo', 'Merinas');");
+	}
+
 	private void executeSqlStatement(String sqlStatement) {
 		jdbcTemplate.execute(sqlStatement);
 	}

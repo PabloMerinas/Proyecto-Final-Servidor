@@ -1,6 +1,5 @@
 package app.backendServidor.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -8,11 +7,12 @@ import org.springframework.stereotype.Service;
 
 import app.backendServidor.persistence.model.User;
 import app.backendServidor.persistence.repositories.UserRepositoryI;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
 
-	@Autowired
 	private UserRepositoryI userRepository;
 
 	@Override

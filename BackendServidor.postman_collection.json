@@ -1,0 +1,413 @@
+{
+	"info": {
+		"_postman_id": "04a93028-589f-49c9-98dc-42cdc6ba362a",
+		"name": "BackendServidor",
+		"description": "Este proyecto gestiona una tabla de personas, pero para poder acceder al crud deberas hacer login, teniendo la posibilidad tambien de gestionar los usuarios.\n\nLa tabla usuarios guarda los usuarios que pueden gestionar la aplicaciones, el usuario por defecto, administrador es:\n\nNombre: Pablo administrador\n\nMail: [admin@admin.com](https://mailto:admin@admin.com)\n\nPassword: admin\n\nDebes hacer login para obtener el beared Token\n\nEl cual seria:\n\neyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31759288",
+		"_collection_link": "https://gold-station-520792.postman.co/workspace/Clase~d424170d-56e0-4e36-8e1d-75ed7495ac33/collection/31759288-04a93028-589f-49c9-98dc-42cdc6ba362a?action=share&source=collection_link&creator=31759288"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{user}}",
+							"host": [
+								"{{host}}{{user}}"
+							]
+						},
+						"description": "Devuelve los usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "getUsersById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{user}}/1",
+							"host": [
+								"{{host}}{{user}}"
+							],
+							"path": [
+								"1"
+							]
+						},
+						"description": "Devuelve un usuario por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "addUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pablo pruebas\",\r\n    \"username\": \"user1\",\r\n    \"password\": \"prueba\",\r\n    \"mail\": \"admin@admin.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{user}}",
+							"host": [
+								"{{host}}{{user}}"
+							]
+						},
+						"description": "Añade un usuario pasandole un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUser\": 1,\r\n    \"name\": \"Pablo Administrador cambiado\",\r\n    \"username\": \"user1\",\r\n    \"password\": \"$2a$10$.cw5MTjHNI08.nMP7yQwxO6KDuEaUSy4BBk95cgV/u92FzKB8uBMS\",\r\n    \"mail\": \"admin@admin.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{user}}/1",
+							"host": [
+								"{{host}}{{user}}"
+							],
+							"path": [
+								"1"
+							]
+						},
+						"description": "Actualiza un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUser\": 1,\r\n    \"name\": \"Pablo Administrador cambiado\",\r\n    \"username\": \"user1\",\r\n    \"password\": \"$2a$10$.cw5MTjHNI08.nMP7yQwxO6KDuEaUSy4BBk95cgV/u92FzKB8uBMS\",\r\n    \"mail\": \"admin@admin.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{user}}/2",
+							"host": [
+								"{{host}}{{user}}"
+							],
+							"path": [
+								"2"
+							]
+						},
+						"description": "Elimina un usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\": \"admin@admin.com\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Hace login con el usuario, devuelve el beared token"
+					},
+					"response": []
+				}
+			],
+			"description": "La tabla usuarios guarda los usuarios que pueden gestionar la aplicaciones, el usuario por defecto, administrador es:\n\nNombre: Pablo administrador\n\nMail: [admin@admin.com](https://mailto:admin@admin.com)\n\nPassword: admin\n\nDebes hacer login para obtener el beared Token\n\nEl cual seria:\n\neyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU"
+		},
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "getPersons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{person}}",
+							"host": [
+								"{{host}}{{person}}"
+							]
+						},
+						"description": "Devuelve las personas"
+					},
+					"response": []
+				},
+				{
+					"name": "getPersonById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{person}}/1",
+							"host": [
+								"{{host}}{{person}}"
+							],
+							"path": [
+								"1"
+							]
+						},
+						"description": "Devuelve una persona por un id"
+					},
+					"response": []
+				},
+				{
+					"name": "addPerson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jesus\",\r\n    \"subname\": \"Merinas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{person}}",
+							"host": [
+								"{{host}}{{person}}"
+							]
+						},
+						"description": "Añade una persona"
+					},
+					"response": []
+				},
+				{
+					"name": "updatePerson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jesus\",\r\n    \"subname\": \"Merinas Soto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{person}}/2",
+							"host": [
+								"{{host}}{{person}}"
+							],
+							"path": [
+								"2"
+							]
+						},
+						"description": "Actualiza una persona"
+					},
+					"response": []
+				},
+				{
+					"name": "deletePerson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTcxMjM5NjQxNX0.ULQpUAruxqX8YyKw6xURxXYv-Gaj8y_aImLXtZIK2BU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jesus\",\r\n    \"subname\": \"Merinas Soto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{person}}/2",
+							"host": [
+								"{{host}}{{person}}"
+							],
+							"path": [
+								"2"
+							]
+						},
+						"description": "Elimina una persona"
+					},
+					"response": []
+				}
+			],
+			"description": "Crud para gestionar personas"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "user",
+			"value": "/v1/user",
+			"type": "string"
+		},
+		{
+			"key": "person",
+			"value": "/v1/person",
+			"type": "string"
+		}
+	]
+}

@@ -1,4 +1,4 @@
-package app.backendServidor.controllers;
+package app.backendServidor.controller;
 
 import java.util.List;
 import java.util.Optional;

@@ -2,15 +2,11 @@ package app.backendServidor.persistence.model;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -35,8 +31,4 @@ public class Person implements Serializable {
 	@Column(name = "C_SUBNAME")
 	private String subname;
 
-//	@OneToOne()
-//	@JoinColumn(name = "C_IDUSER", referencedColumnName = "C_IDUSER")
-//	@JsonBackReference
-//	private User user;
 }
