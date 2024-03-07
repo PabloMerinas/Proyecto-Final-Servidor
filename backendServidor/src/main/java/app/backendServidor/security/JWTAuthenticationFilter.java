@@ -43,9 +43,18 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		String token = TokenUtils.createToken(userDetailsImpl.getName(), userDetailsImpl.getUsername());
 
 		response.addHeader("Authorization", "Bearer " + token);
+		response.getWriter().write("Login correcto\n");
+		response.getWriter().write("Beared Token de este usuario: " + token);
+
 		response.getWriter().flush();
 
 		super.successfulAuthentication(request, response, chain, authResult);
+	}
+
+	@Override
+	protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException failed) throws IOException, ServletException {
+		response.getWriter().write("Login fallido");
 	}
 
 }

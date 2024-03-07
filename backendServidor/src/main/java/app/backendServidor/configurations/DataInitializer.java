@@ -17,15 +17,14 @@ public class DataInitializer {
 
 	@PostConstruct
 	public void initializeData() {
-		String password = new BCryptPasswordEncoder().encode("prueba");
-		System.out.println("Usuario de prueba\nMail: prueba@prueba.com\nContraseña: prueba");
+		String password = new BCryptPasswordEncoder().encode("admin");
+		//System.out.println("Usuario de prueba\nMail: admin@admin.com\nContraseña: admin");
 
 		executeSqlStatement(
-				"INSERT INTO T_USER (C_USERNAME, C_PASSWORD, C_MAIL) VALUES ('user1', '" + password + "', 'prueba@prueba.com');");
+				"INSERT INTO T_USER (C_USERNAME, C_NAME, C_PASSWORD, C_MAIL) VALUES ('user1','Pablo Administrador', '" + password + "', 'admin@admin.com');");
 		executeSqlStatement(
-				"INSERT INTO T_PERSON (C_NAME, C_SUBNAME) VALUES ('John', 'Doe');");
-	} // INSERT INTO T_PERSON (C_NAME, C_SUBNAME, C_IDUSER) VALUES ('John', 'Doe', '1');"
-
+				"INSERT INTO T_PERSON (C_NAME, C_SUBNAME) VALUES ('Pablo', 'Merinas');");
+	} 
 	private void executeSqlStatement(String sqlStatement) {
 		jdbcTemplate.execute(sqlStatement);
 	}

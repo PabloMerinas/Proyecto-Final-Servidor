@@ -1,6 +1,7 @@
 package app.backendServidor.services.implement;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -18,13 +19,24 @@ public class UserManagementImpl implements UserManagementI {
 	}
 
 	@Override
-	public void addUser(User u) {
+	public User addUser(User u) {
 		userRepositoryI.save(u);
+		return u;
 	}
 
 	@Override
 	public List<User> findAllUsers() {
 		return userRepositoryI.findAll();
+	}
+
+	@Override
+	public Optional<User> findUserById(Long id) {
+		return userRepositoryI.findById(id);
+	}
+
+	@Override
+	public void deleteUser(Long id) {
+		userRepositoryI.deleteById(id);
 	}
 
 }

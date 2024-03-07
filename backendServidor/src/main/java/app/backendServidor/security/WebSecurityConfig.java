@@ -29,8 +29,8 @@ public class WebSecurityConfig {
 		jwtAuthenticationFilter.setAuthenticationManager(authManager);
 		jwtAuthenticationFilter.setFilterProcessesUrl("/login");
 
-		return http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().httpBasic().and()
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+		return http.csrf(csrf -> csrf.disable()).authorizeRequests(requests -> requests.anyRequest().authenticated())
+				.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.addFilter(jwtAuthenticationFilter)
 				.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class).build();
 
@@ -54,6 +54,5 @@ public class WebSecurityConfig {
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
 
 }

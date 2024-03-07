@@ -1,6 +1,7 @@
 package app.backendServidor.services.implement;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,22 @@ public class PersonManagementImpl implements PersonManagementI {
 	@Override
 	public Person findById(Long id) {
 		return personRepositoryI.findById(id).orElse(null);
+	}
+
+	@Override
+	public Optional<Person> findPersonById(Long id) {
+		return personRepositoryI.findById(id);
+	}
+
+	@Override
+	public Person savePerson(Person person) {
+		personRepositoryI.save(person);
+		return person;
+	}
+
+	@Override
+	public void deletePerson(Long id) {
+		personRepositoryI.deleteById(id);
 	}
 
 }
