@@ -25,6 +25,7 @@ El proyecto está estructurado en varios paquetes:
 
 ### Pruebas unitarias
 - Incluye casos de prueba unitarios para garantizar el correcto funcionamiento del CRUD.
+- Se ha utilizado mockito para las pruebas unitarias y Junit
 
 ### Documentación de la API
 - Se ha utilizado Postman para consumir la API.
